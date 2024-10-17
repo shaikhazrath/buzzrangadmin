@@ -28,7 +28,7 @@ const Admin = () => {
 
     const fetchProducts = async (page) => {
         try {
-            const response = await axios.get(`${NEXT_PUBLIC_API_URL}/products`, {
+            const response = await axios.get(`${NEXT_PUBLIC_API_URL}/products/admin`, {
                 params: { page, limit: productsPerPage }
             });
             setProducts(response.data.products);

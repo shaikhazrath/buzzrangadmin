@@ -11,6 +11,7 @@ const Admin = () => {
         price: '',
         images: '',
         category: '',
+        categoryfor: '',
         brand: '',
         gender: '',
         discountPrice: '',
@@ -96,6 +97,7 @@ const Admin = () => {
             price: '',
             images: '',
             category: '',
+            categoryfor:'',
             brand: '',
             gender: '',
             discountPrice: '',
@@ -118,13 +120,17 @@ const Admin = () => {
                     <input type="number" name="price" placeholder="Price" value={formData.price} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" required />
                     <input type="text" name="images" placeholder="Image URL" value={formData.images} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" required />
                     <input type="text" name="category" placeholder="Category" value={formData.category} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" />
-                    <input type="text" name="brand" placeholder="Brand" value={formData.brand} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" />
-                    <select name="gender" value={formData.gender} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" required>
-                        <option value="">Select Gender</option>
+                    <select name="categoryfor" value={formData.categoryfor} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" required>
+                        <option value="">categoryfor</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
-                    <input type="number" name="discountPrice" placeholder="Discount Price" value={formData.discountPrice} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" />
+                    <input type="text" name="brand" placeholder="Brand" value={formData.brand} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" />
+                    <select name="gender" value={formData.gender} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" required>
+                        <option value="">Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
                     <input type="text" name="productWebsiteLink" placeholder="Product Website Link" value={formData.productWebsiteLink} onChange={handleChange} className="border border-gray-600 bg-gray-800 text-white rounded p-2" />
                 </div>
                 <button type="submit" className="mt-4 bg-blue-600 text-white py-2 px-4 rounded">{editingProductId ? 'Update Product' : 'Add Product'}</button>
@@ -144,7 +150,7 @@ const Admin = () => {
                     {products.map(product => (
                         <tr key={product._id} className="hover:bg-gray-700">
                             <td className="border px-4 py-2">{product.name}</td>
-                            <td className="border px-4 py-2">${product.price}</td>
+                            <td className="border px-4 py-2">Rs {product.price}</td>
                             <td className="border px-4 py-2">
                                 <button onClick={() => editProduct(product)} className="bg-yellow-500 text-black px-2 py-1 rounded">Edit</button>
                                 <button onClick={() => deleteProduct(product._id)} className="bg-red-500 text-white px-2 py-1 rounded ml-2">Delete</button>
